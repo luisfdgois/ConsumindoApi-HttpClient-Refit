@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AlunoViewModel>
+
+@{
+    ViewData["Title"] = "Lista de Alunos";
+}
+
+<div>
+    <h2>@ViewData["Title"]</h2>
+    <a asp-action="Create" class="btn btn-success">Novo Aluno</a>
+</div>
+
+<div>
+    <hr />
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr class="success">
+                <th>
+                    @Html.DisplayNameFor(model => model.nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.matricula)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.nascimento)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var aluno in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => aluno.nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => aluno.matricula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => aluno.nascimento)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
